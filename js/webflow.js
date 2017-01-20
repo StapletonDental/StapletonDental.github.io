@@ -1920,6 +1920,9 @@
     function styleApp(el, data) {
       var _tram = tram(el);
 
+      // Exit early when data is empty to avoid clearing upstream
+      if ($.isEmptyObject(data)) return;
+
       // Get computed transition value
       el.css('transition', '');
       var computed = el.css('transition');
@@ -4336,10 +4339,10 @@
  * Webflow: Interactions: Init
  */
 Webflow.require('ix').init([
-  {"slug":"slide-nav-in","name":"Slide Nav In","value":{"style":{},"triggers":[{"type":"scroll","selector":".navscroll","offsetTop":"50%","offsetBot":"50%","preserve3d":true,"stepsA":[{"opacity":1,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"-120px","z":"0px"},{"display":"none"}],"stepsB":[{"display":"flex"},{"opacity":1,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"0px","z":"0px"}]}]}},
+  {"slug":"slide-nav-in","name":"Slide Nav In","value":{"style":{},"triggers":[{"type":"scroll","selector":".navscroll","offsetTop":"80%","offsetBot":"80%","preserve3d":true,"stepsA":[{"opacity":1,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"-120px","z":"0px"},{"display":"none"}],"stepsB":[{"display":"flex"},{"opacity":1,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"0px","z":"0px"}]}]}},
   {"slug":"hide-nav","name":"Hide Nav","value":{"style":{"display":"none","opacity":0},"triggers":[]}},
   {"slug":"slide-in","name":"slide in","value":{"style":{"opacity":0,"x":"0px","y":"51px","z":"0px"},"triggers":[{"type":"scroll","offsetTop":"20%","offsetBot":"30%","stepsA":[{"opacity":1,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"0px","z":"0px"}],"stepsB":[{"opacity":0,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"50px","z":"0px"}]}]}},
-  {"slug":"slide-in-delay","name":"slide in delay","value":{"style":{"opacity":0,"x":"0px","y":"51px","z":"0px"},"triggers":[{"type":"scroll","offsetTop":"20%","offsetBot":"20%","stepsA":[{"opacity":1,"transition":"transform 700ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"0px","z":"0px"}],"stepsB":[{"opacity":0,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"50px","z":"0px"}]}]}},
+  {"slug":"slide-in-delay","name":"slide in delay","value":{"style":{"opacity":0,"x":"0px","y":"51px","z":"0px"},"triggers":[{"type":"scroll","offsetTop":"10%","offsetBot":"10%","stepsA":[{"opacity":1,"transition":"transform 700ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"0px","z":"0px"}],"stepsB":[{"opacity":0,"transition":"transform 500ms ease 0ms, opacity 500ms ease 0ms","x":"0px","y":"50px","z":"0px"}]}]}},
   {"slug":"load","name":"load","value":{"style":{"opacity":0,"scaleX":0.93,"scaleY":0.93,"scaleZ":1},"triggers":[{"type":"load","preload":true,"stepsA":[{"opacity":1,"transition":"transform 800ms ease 0ms, opacity 800ms ease 0ms","scaleX":1,"scaleY":1,"scaleZ":1}],"stepsB":[]}]}},
   {"slug":"fade-in-on-scroll","name":"Fade In on scroll","value":{"style":{"opacity":0,"x":"0px","y":"80px","z":"0px"},"triggers":[{"type":"scroll","offsetTop":"30%","offsetBot":"30%","stepsA":[{"transition":"transform 700ms ease 0ms","x":"0px","y":"0px","z":"0px"},{"opacity":1,"transition":"transform 700ms ease 0ms, opacity 700ms ease 0ms","x":"0px","y":"0px","z":"0px"}],"stepsB":[{"opacity":0,"transition":"opacity 700ms ease 0ms"}]}]}}
 ]);
